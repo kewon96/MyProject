@@ -12,7 +12,7 @@ async function get(url: string, data?: any) {
     try {
         const plainData = toRaw(unref(data)) || {}
         if (plainData) {
-            plainData.corpCd = plainData.corpCd || useAuth()?.user?.value?.corpCd
+            // plainData.corpCd = plainData.corpCd || useAuth()?.user?.value?.corpCd
             url += '?' + Object.keys(plainData).map(function (k) {
                 return encodeURIComponent(k) + '=' + encodeURIComponent(plainData[k])
             }).join('&')
@@ -51,7 +51,7 @@ async function post(url: string, data?: any, config?: AxiosRequestConfig) {
     }
 }
 
-async function upload(url: string, saveData: any, uploadSaveData?: UploadSaveData, config?: AxiosRequestConfig) {
+async function upload(url: string, saveData: any, uploadSaveData?: /*UploadSaveData*/ any, config?: AxiosRequestConfig) {
     try {
         const plainData = toRaw(unref(saveData)) || {}
 

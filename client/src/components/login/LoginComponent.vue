@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-  import http from "../../../util/http";
+  import http from "../../util/http";
   import { ref } from "vue";
 
   const account = ref({
