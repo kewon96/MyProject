@@ -14,29 +14,29 @@
 </template>
 
 <script setup lang="ts">
-  import http from "../../util/http";
-  import { ref } from "vue";
+import http from "../../util/http";
+import { ref } from "vue";
 
-  const account = ref({
-    id: '',
-    password: ''
-  })
+const account = ref({
+  id: '',
+  password: ''
+})
 
-  async function doLogin() {
-    const response = await http.post('/login', account)
-    console.log(response)
-  }
+async function doLogin() {
+  const response = await http.post('/login', account)
+  console.log(response)
+}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   div {
     display: flex;
     margin: 5px 0 0 5px;
-  }
 
-  div > div {
-    width: 300px;
-    justify-content: flex-end;
-    margin-right: 5px;
+    div {
+      width: 300px;
+      justify-content: flex-end;
+      margin-right: 5px;
+    }
   }
 </style>

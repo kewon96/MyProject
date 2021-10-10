@@ -5,7 +5,7 @@ server:
 ## database 접속 설정
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/testdata
+    url: jdbc:postgresql://localhost:8010/springdata
     username: kewon
     password: pass
 
@@ -17,3 +17,5 @@ spring:
             non-contextual-creation: true
 
         ddl-auto: update
+
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
