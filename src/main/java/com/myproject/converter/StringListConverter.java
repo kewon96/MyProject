@@ -1,5 +1,6 @@
 package com.myproject.converter;
 
+import org.apache.tomcat.util.buf.StringUtils;
 import org.springframework.util.CollectionUtils;
 
 import javax.persistence.AttributeConverter;

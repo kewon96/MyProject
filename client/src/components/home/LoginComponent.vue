@@ -16,7 +16,7 @@
       <div class="pass">Forgot Password?</div>
       <input type="submit" value="Login">
       <div class="signup-link">
-        Not a member? <a href="#">Signup</a>
+        Not a member? <router-link :to="registerParam">Sign Up</router-link>
       </div>
     </form>
   </div>
@@ -31,6 +31,11 @@ const account = ref({
   id: '',
   password: ''
 })
+
+const registerParam: param = {
+  name: 'Register',
+  param: {}
+}
 
 async function doLogin() {
   const response = await http.post('/login', account)

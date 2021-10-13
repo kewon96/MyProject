@@ -67,11 +67,7 @@ public class MemberService implements BaseService, UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-        Optional<Member> option = userRepository.findById(id);
-
-        if(option.isEmpty()) {
-            throw new UsernameNotFoundException(id);
-        }
+        Optional<Member> option = Optional.ofNullable(userRepository.findById(id).orElseThrow(() -> new UsernameNotFoundException(id)));
 
         Member member = option.get();
 
