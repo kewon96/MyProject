@@ -5,9 +5,9 @@ server:
 ## database 접속 설정
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:8010/springdata
-    username: kewon
-    password: pass
+    url: jdbc:postgresql://localhost:5432/project
+    username: admin
+    password: admin
 
   jpa:
     properties:

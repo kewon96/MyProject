@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Getter
@@ -19,12 +16,13 @@ import java.util.List;
 public class Member {
 
     @Id
-    private String id;
+    private String email;
 
     private String password;
 
-    private String email;
+    private String username;
 
+    @Transient
     @Convert(converter = StringListConverter.class)
     private List<String> authorities;
 }

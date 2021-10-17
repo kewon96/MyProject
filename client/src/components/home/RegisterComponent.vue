@@ -1,15 +1,15 @@
 <template>
   <div class="content">
     <label>Email : </label>
-    <input type="email" @model="content.email">
+    <input type="email" v-model="content.email">
   </div>
   <div class="content">
     <label>Password : </label>
-    <input type="password" @model="content.password">
+    <input type="password" v-model="content.password">
   </div>
   <div class="content">
     <label>Username : </label>
-    <input type="text" @model="content.username">
+    <input type="text" v-model="content.username">
   </div>
 
   <button @click="createMember">SignUp</button>
@@ -18,10 +18,11 @@
 </template>
 
 <script setup lang="ts">
-import {getCurrentInstance, ref} from "vue";
+import {getCurrentInstance, reactive, ref, toRaw, toRefs, unref} from "vue";
   import http from "../../util/http";
+import {ComponentInternalInstance} from "@vue/runtime-core";
 
-  const vm = getCurrentInstance();
+  const vm = getCurrentInstance() as ComponentInternalInstance;
 
   interface Content {
     email: String,
@@ -41,7 +42,8 @@ import {getCurrentInstance, ref} from "vue";
   }
 
   async function createMember() {
-    const response = await http.post('/regist', content)
+    const response = await http.post('/regist', content);
+    debugger
     console.log(response)
 
     alert('회원가입이 끝났습니다!');
@@ -68,7 +70,7 @@ import {getCurrentInstance, ref} from "vue";
     border-radius: 3px;
   }
 
-  input[type="submit"] {
+  button {
     background: #fff;
     font-size: 1rem;
     border-radius: 3px;

@@ -54,8 +54,9 @@ public class MemberService implements BaseService, UserDetailsService {
         String encodedPassword = passwordEncoder.encode(member.getPassword());
         member.setPassword(encodedPassword);
 
-//        return member
-        return null;
+        Member save = userRepository.save(member);
+        System.out.println(save);
+        return save;
     }
 
     /** 계정이 가지고 있는 권한 목록 return */
@@ -71,6 +72,6 @@ public class MemberService implements BaseService, UserDetailsService {
 
         Member member = option.get();
 
-        return new User(member.getId(), member.getPassword(), authorities(member));
+        return new User(member.getEmail(), member.getPassword(), authorities(member));
     }
 }

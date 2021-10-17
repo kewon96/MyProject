@@ -18,8 +18,10 @@ public class MemberController {
         return "123";
     }
 
-//    @GetMapping("/register")
-//    public void register(@RequestBody Member member) {
-//        memberService.registMember(member);
-//    }
+    @PostMapping("/regist")
+    public String register(@RequestBody Member member) {
+        memberService.registMember(member);
+
+        return "end";
+    }
 }
