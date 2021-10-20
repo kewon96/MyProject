@@ -1,3 +1,4 @@
+## http://mageddo.com/tools/yaml-converter
 
 server:
   port: 3030
@@ -8,14 +9,13 @@ spring:
     url: jdbc:postgresql://localhost:5432/project
     username: admin
     password: admin
-
   jpa:
     properties:
       hibernate:
         jdbc:
           lob:
-            non-contextual-creation: true
-
-        ddl-auto: update
+            non_contextual_creation: 'true'
+    hibernate:
+      ddl-auto: create
 
     database-platform: org.hibernate.dialect.PostgreSQLDialect
