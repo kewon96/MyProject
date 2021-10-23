@@ -1,11 +1,11 @@
 <template>
   <div class="center">
     <h1>Login</h1>
-    <form method="post" action="doLogin">
+    <form method="post" @submit.prevent="doLogin">
       <div class="txt-field">
-        <input type="text" v-model="account.id" required>
+        <input type="text" v-model="account.email" required>
         <span></span>
-        <label>Username</label>
+        <label>Email</label>
       </div>
       <div class="txt-field">
         <input type="password" v-model="account.password" required>
@@ -14,7 +14,7 @@
       </div>
 
       <div class="pass">Forgot Password?</div>
-      <input type="submit" value="Login">
+      <button type="submit">Login</button>
       <div class="signup-link">
         Not a member? <router-link :to="registerParam">Sign Up</router-link>
       </div>
@@ -28,18 +28,26 @@ import http from "../../util/http";
 import { ref } from "vue";
 
 const account = ref({
-  id: '',
+  email: '',
   password: ''
 })
 
-const registerParam: param = {
+const registerParam = {
   name: 'Register',
   param: {}
 }
 
 async function doLogin() {
-  const response = await http.post('/login', account)
-  console.log(response)
+  try {
+    const response = await http.post('/login', account);
+    debugger
+    console.log(response)
+  } catch (e) {
+    debugger
+    console.log(e)
+  }
+
+
 }
 </script>
 
@@ -116,7 +124,7 @@ async function doLogin() {
       }
     } /* .txt-field End */
 
-    input[type="submit"] {
+    button {
       width: 100%;
       height: 50px;
       border: 1px solid;
