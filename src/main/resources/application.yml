@@ -6,7 +6,7 @@ server:
 ## database 접속 설정
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/project
+    url: jdbc:postgresql://localhost:5432/my_project
     username: admin
     password: admin
   jpa:
@@ -16,6 +16,6 @@ spring:
           lob:
             non_contextual_creation: 'true'
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 
     database-platform: org.hibernate.dialect.PostgreSQLDialect
